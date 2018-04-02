@@ -1,62 +1,68 @@
-
-# coding: utf-8
-
-# In[2]:
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 import wave
 from pydub import AudioSegment
-import sys
+import segmentation as seg
+import pydub
+from pathlib import Path
 
-data_files=['266766_23_K_21_1.wav', '266766_23_K_22_2.wav', '266766_23_K_9_3.wav', '266766_23_K_11_4.wav']
-info_files=['266766_23_K_21_1wav.txt', '266766_23_K_22_2wav.txt', '266766_23_K_9_3wav.txt', '266766_23_K_11_4wav.txt']
+def read_wav_file(data_file, input_path):
+    data_wav = wave.open(input_path + data_file, 'r')
 
-
-for file_idx in range(len(data_files)):
-    data_wav = wave.open(data_files[file_idx],'r')
-
-    #Extract Raw Audio from Wav File
+    # Extract Raw Audio from Wav File
     raw_signal = data_wav.readframes(-1)
+    Fs=data_wav.getframerate()
+
     raw_signal = np.fromstring(raw_signal, 'Int16')
-
-    #If Stereo
-    #if data_wav.getnchannels() == 2:
-    #    print ('Just mono files')
-     #   sys.exit(0)
-
-    plt.figure(file_idx)
+    timeline = np.arange(0, 1 / Fs * len(raw_signal), 1 / Fs)
+    plt.figure
     plt.title('Signal of spoken commands from wav file')
-    plt.plot(raw_signal)
+    plt.plot(timeline, raw_signal)
+    plt.grid(True)
     plt.show()
 
+    return raw_signal
+
+def wav_files_segmentation(data_files,info_files,input_path, output_path):
+
+    for file_idx in range(len(data_files)):
+
+        commands_file = open(input_path+info_files[file_idx],"r")
+        commands = commands_file.readlines()
+        commands_file.close()
+
+        nb_command = 0
+        for line in commands:
+            command = commands[nb_command].split()
+            start_ime=float(command[0])*1000
+            end_time=float(command[1])*1000
+            nb_command += 1
+
+            command_audio = AudioSegment.from_wav(input_path+data_files[file_idx])
+            command_audio = command_audio[start_ime:end_time]
+
+            command_audio.export(output_path+command[2]+str(file_idx)+'.wav', format="wav")
 
 
-    a = open(info_files[file_idx],"r")
-    b = a.readlines()
-    a.close()
-    path_word=['zapal.wav', 'swiatlo.wav', 'w.wav', 'kuchni.wav', 'otworz.wav', 'drzwi.wav', 'do.wav', 'garazu.wav', 'wlacz.wav', 'zmywarke.wav', 'wylacz.wav', 'telewizor.wav', 'podnies.wav', 'rolety.wav', 'sypialni.wav', 'zamknij.wav', 'brame.wav', 'zwieksz.wav', 'o.wav', 'jeden.wav',
-               'stopien.wav', 'zarkec.wav', 'wode.wav', 'lazience.wav', 'ustaw.wav', 'alarm.wav', 'przycisz.wav', 'radio.wav', 'zmien.wav', 'kanal.wav', 'podlej.wav', 'kwiatki.wav', 'zaparz.wav', 'kawe.wav', 'alarm.wav', 'zagotuj.wav']
+def commands_SPD(input_path):
 
-    count = -1
-    for line in b:
-        count += 1
-        if count >= 0:
-            d = b[count].split()
-            print (d)
-            t1=d[0]
-            t2=d[1]
-            t1=float(t1)
-            t2=float(t2)
-            t1=t1*1000 # works in miliseconds
-            t2=t2*1000
-            print (t1)
-            print (t2)
+    data_files=[f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
+    for file_idx in range(len(data_files)):
+        print(data_files[file_idx])
+        data_wav = wave.open(str(data_files[file_idx]),'r')
+        Fs = data_wav.getframerate()
 
+        raw_signal = data_wav.readframes(-1)
+        raw_signal = np.fromstring(raw_signal, 'Int16')
 
-        newAudio = AudioSegment.from_wav(data_files[file_idx])
-        newAudio = newAudio[t1:t2]
+        power_spectrum = np.abs(np.fft.fft(raw_signal)) ** 2
+        print(power_spectrum)
+        print(type(power_spectrum))
+        print(np.size(power_spectrum))
 
-        newAudio.export(d[2], format="wav")
+        time_step = 1 / Fs
+        freqs = np.fft.fftfreq(raw_signal.size, time_step)
+        idx = np.argsort(freqs)
 
+        plt.plot(freqs[idx], power_spectrum[idx])
+        plt.show()
