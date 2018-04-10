@@ -11,6 +11,7 @@ import scipy.io.wavfile as wavfile
 import matplotlib.cm as cm
 import scipy as scipy
 import pandas
+#from spectrum import *
 from scipy.signal import butter, lfilter
 
 def read_wav_file(data_file, input_path, plotting = True):
@@ -57,6 +58,13 @@ def data_filtering(data, fs, low_freq,high_freq, order, plotting = True):
 
     return filtered_data
 
+def normalization(data):
+
+    offset = np.mean(data)
+    data = data - offset
+    norm_data = (data - min(data)) / (max(data) - min(data))
+
+    return norm_data
 
 def wav_files_segmentation(data_files,info_files,input_path, output_path):
 
@@ -97,19 +105,30 @@ def commands_PSD(input_path, analysis_path, saving = False, plotting = False):
 
         power_spectrum_all.append(power_spectrum)
 
+        time_step = 1 / fs
+        freqs = np.fft.fftfreq(raw_signal.size, time_step)
+        idx = np.argsort(freqs)
+        print(type(freqs))
+        print(type(power_spectrum))
+
         if plotting:
-            time_step = 1 / fs
-            freqs = np.fft.fftfreq(raw_signal.size, time_step)
-            idx = np.argsort(freqs)
 
             plt.plot(freqs[idx], power_spectrum[idx])
             plt.show()
 
         if saving:
+            data = np.vstack((freqs[idx],power_spectrum[idx]))
             file_name=str(data_files[file_idx])
             file_name=file_name.replace("\\","_")
             file_name = file_name.replace(".", "")
-            np.savetxt(str(analysis_path)+'PSD_'+str(file_name)+'.txt', power_spectrum, fmt='%f')
+            file_path = open(str(analysis_path) + 'PSD_'+str(file_name)+'.txt''.txt', 'w')
+            print('DATAAA')
+            print(data)
+            for line in data:
+                for item in line:
+                    file_path.write("%f " % item)
+                file_path.write("\n")
+            #np.savetxt(str(analysis_path)+'PSD_'+str(file_name)+'.txt', data, fmt='%f')
     if saving:
         input_path = str(input_path)
         input_path = input_path.replace("\\", "")
@@ -361,6 +380,8 @@ def commands_entropy(input_path, analysis_path, saving = True):
     return entropy_all
 
 
+
+
 def get_ApEn(RR_intervals, m=2, r_mlp=0.2):
     """
     Estimate Approximate Entropy of signal
@@ -416,3 +437,93 @@ def get_ApEn(RR_intervals, m=2, r_mlp=0.2):
 
 
     return ApEn
+
+def commands_autoreggression_coeffs(input_path, analysis_path, saving = True):
+    # Levinson-Durbin algorithm for solving the Hermitian Toeplitz system of Yule-Walker equations in the AR estimation problem
+#     #from spectrum import *
+# from pylab import *
+# a,b, rho = arma_estimate(marple_data, 15, 15, 30)
+# psd = arma2psd(A=a, B=b, rho=rho, sides='centerdc', norm=True)
+# plot(10 * log10(psd))
+# ylim([-50,0])
+
+
+    data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
+    entropy_all = np.zeros(len(data_files))
+
+    for file_idx in range(len(data_files)):
+
+        data_wav = wave.open(str(data_files[file_idx]), 'r')
+        raw_signal = data_wav.readframes(-1)
+        raw_signal = np.fromstring(raw_signal, 'Int16')
+
+
+        #command_entropy = get_ApEn(raw_signal)
+        p_data = pandas.value_counts(raw_signal) / len(raw_signal)  # calculates the probabilities
+        command_entropy = scipy.stats.entropy(p_data)
+        print(command_entropy)
+
+        entropy_all[file_idx] = command_entropy
+        command_entropy = [command_entropy]
+
+        if saving:
+            file_name = str(data_files[file_idx])
+            file_name = file_name.replace("\\", "_")
+            np.savetxt(str(analysis_path) + 'Entropy_' + str(file_name) + '.txt', command_entropy, fmt='%f')
+    if saving:
+        input_path = input_path.replace("\\", "")
+        np.savetxt(str(analysis_path) + 'Entropy_' + str(input_path) + '.txt', entropy_all)
+        return 0
+
+
+def commands_max_freq(input_path, analysis_path, saving = False, plotting = False):
+
+    data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
+
+    max_idx_all = []
+
+
+    for file_idx in range(len(data_files)):
+        data_wav = wave.open(str(data_files[file_idx]),'r')
+        fs = data_wav.getframerate()
+
+        raw_signal = data_wav.readframes(-1)
+        raw_signal = np.fromstring(raw_signal, 'Int16')
+
+        power_spectrum = np.abs(np.fft.fft(raw_signal)) ** 2
+        print(power_spectrum)
+
+        time_step = 1 / fs
+        freqs = np.fft.fftfreq(raw_signal.size, time_step)
+        #idx = np.argsort(freqs)
+        #freqs = freqs[idx]
+        max_idx=np.argmax(power_spectrum)
+
+        max_freq = freqs[max_idx]
+
+        max_idx_all.append(max_freq)
+
+        max_idx = [max_idx]
+
+        if saving:
+            file_name=str(data_files[file_idx])
+            file_name=file_name.replace("\\","_")
+            file_name = file_name.replace(".", "")
+            np.savetxt(str(analysis_path)+'Max_freq_'+str(file_name)+'.txt', max_idx, fmt='%f')
+    if saving:
+        input_path = str(input_path)
+        input_path = input_path.replace("\\", "")
+        input_path = input_path.replace(".", "")
+        file_path = open(str(analysis_path) + 'Max_freq_'+ input_path + '.txt', 'w')
+
+        for line in max_idx_all:
+                file_path.write("%f " % line)
+                file_path.write("\n")
+        #np.savetxt(str(analysis_path) + 'PSD_' + str(input_path) + '.txt', power_spectrum_all)
+
+
+    return max_idx_all
+
+
+
+

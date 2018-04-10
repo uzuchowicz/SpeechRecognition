@@ -11,8 +11,7 @@ import scipy.io.wavfile as wavfile
 AudioSegment.converter = "C:\\Program Files\\ffmpeg-20180331-be502ec-win64-static\\bin\\ffmpeg.exe"
 import sys
 
-
-
+#substraction no sound signal?
 
 # arCoeff(): Autorregresion coefficients with Burg order equal to 4
 # correlation(): correlation coefficient between two signals
@@ -32,7 +31,7 @@ analysis_path="analysis_coeffs\\"
 
 
 #prepr.wav_files_segmentation(data_files, info_files, input_path, output_path)
-PSD=prepr.commands_entropy(input_path, analysis_path, True)
+PSD=prepr.commands_PSD(input_path, analysis_path, True)
 
 print('what')
 print(PSD)
