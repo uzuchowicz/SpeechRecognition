@@ -4,6 +4,7 @@ import numpy as np
 import wave
 from pydub import AudioSegment
 import segmentation as prepr
+import classification as classf
 import pydub
 from pylab import *
 import pywt
@@ -31,15 +32,16 @@ analysis_path="analysis_coeffs\\"
 
 
 #prepr.wav_files_segmentation(data_files, info_files, input_path, output_path)
-PSD=prepr.commands_PSD(input_path, analysis_path, True)
+#PSD=prepr.commands_PSD(input_path, analysis_path, True)
 
 print('what')
-print(PSD)
-print(np.size(PSD))
+
 # low_freq=30
 # high_freq=3200
 # data_filtr = prepr.data_filtering(data, fs, low_freq,high_freq, 2, True)
 x=np.loadtxt('analysis_coeffs\\mean_recordings_266766_23_K_9_3.wav.txt', dtype=float)
 print('d[a')
-print(x)
 
+
+coeffs = classf.compute_coefficients(input_path)
+print(coeffs)

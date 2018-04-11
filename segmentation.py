@@ -87,7 +87,7 @@ def wav_files_segmentation(data_files,info_files,input_path, output_path):
             command_audio.export(output_path+command[2]+str(file_idx)+'.wav', format="wav")
 
 
-def commands_PSD(input_path, analysis_path, saving = False, plotting = False):
+def commands_PSD(input_path, analysis_path = False, saving = False, plotting = False):
 
     data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
 
@@ -116,7 +116,7 @@ def commands_PSD(input_path, analysis_path, saving = False, plotting = False):
             plt.plot(freqs[idx], power_spectrum[idx])
             plt.show()
 
-        if saving:
+        if saving and analysis_path:
             data = np.vstack((freqs[idx],power_spectrum[idx]))
             file_name=str(data_files[file_idx])
             file_name=file_name.replace("\\","_")
@@ -216,15 +216,19 @@ def scalogram(data):
     pylab.show()
 
 
-def commands_mean_std_min_max(input_path, analysis_path, saving = False):
+def commands_mean_std_min_max(input_path, analysis_path = False):
     #mean(): Mean value
     # std(): Standard deviation
     # mad(): Median absolute deviation
     # max(): Largest value in array
     # min(): Smallest value in array
-
-    data_files=[f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
-
+    print('FOILEE')
+    print(input_path)
+    if str(input_path)[-4:] == '.wav':
+        data_files=[input_path]
+    else:
+        data_files=[f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
+    print(data_files)
     commands_stats_all = np.zeros(shape = (4, len(data_files)))
 
     for file_idx in range(len(data_files)):
@@ -239,14 +243,15 @@ def commands_mean_std_min_max(input_path, analysis_path, saving = False):
         command_min = np.min(raw_signal)
         command_max = np.max(raw_signal)
         command_stats = [command_mean, command_std , command_min, command_max]
+
         commands_stats_all[:][file_idx] = command_stats
 
-        if saving:
+        if analysis_path:
             file_name = str(data_files[file_idx])
             file_name = file_name.replace("\\", "_")
             file_name = file_name.replace(".", "")
             np.savetxt(str(analysis_path) + 'mean_' + str(file_name) + '.txt', command_stats, fmt='%f')
-    if saving:
+    if analysis_path:
         np.savetxt(str(analysis_path) + 'PSD_' + str(input_path) + '.txt', commands_stats_all)
 
     return commands_stats_all
