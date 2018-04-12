@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import wave
 from pydub import AudioSegment
-import segmentation as prepr
+import features_extraction as fextr
+import preprocessing as prep
 import classification as classf
 import pydub
 from pylab import *
-import pywt
+
 import scipy.io.wavfile as wavfile
 AudioSegment.converter = "C:\\Program Files\\ffmpeg-20180331-be502ec-win64-static\\bin\\ffmpeg.exe"
 import sys
@@ -31,7 +32,7 @@ input_path="recordings\\"
 analysis_path="analysis_coeffs\\"
 
 
-#prepr.wav_files_segmentation(data_files, info_files, input_path, output_path)
+prep.wav_files_segmentation(data_files, info_files, input_path, output_path)
 #PSD=prepr.commands_PSD(input_path, analysis_path, True)
 
 print('what')
@@ -43,5 +44,5 @@ x=np.loadtxt('analysis_coeffs\\mean_recordings_266766_23_K_9_3.wav.txt', dtype=f
 print('d[a')
 
 
-coeffs = classf.compute_coefficients(input_path)
+coeffs = fextr.compute_coefficients(input_path)
 print(coeffs)

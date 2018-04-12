@@ -1,37 +1,10 @@
 from sklearn.neural_network import MLPClassifier
 from pathlib import Path
-import segmentation as prepr
+import features_extraction as fextr
 import numpy as np
 
 
 
-def compute_coefficients(input_path, analysis_path = 0, saving = True):
-    data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
-
-    coeffs_all = np.zeros(shape = (4, len(data_files)))
-    #print(len(data_files))
-    #print(np.shape(coeffs_all))
-
-    command_PSD = prepr.commands_mean_std_min_max(input_path)
-    print(np.shape(command_PSD))
-    print(command_PSD)
-    print(type(command_PSD))
-    coeffs_all[:] = command_PSD
-
-                # np.savetxt(str(analysis_path)+'PSD_'+str(file_name)+'.txt', data, fmt='%f')
-    if saving:
-        input_path = str(input_path)
-        input_path = input_path.replace("\\", "")
-        input_path = input_path.replace(".", "")
-        file_path = open(str(analysis_path) + 'PSD_' + input_path + '.txt', 'w')
-
-        for line in coeffs_all:
-            for item in line:
-                file_path.write("%f " % item)
-            file_path.write("\n")
-            # np.savetxt(str(analysis_path) + 'PSD_' + str(input_path) + '.txt', power_spectrum_all)
-
-    return coeffs_all
 def neural_network_training(data_coeffs, data_group):
        nn_classifier = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
 
