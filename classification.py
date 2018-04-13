@@ -5,10 +5,10 @@ import numpy as np
 
 
 
-def neural_network_training(data_coeffs, data_group):
+def neural_network_training(training_data_coeffs, training_data_groups):
        nn_classifier = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
 
-       nn_classifier.fit(data_coeffs, data_group)
+       nn_classifier.fit(training_data_coeffs, training_data_groups)
        # MLPClassifier(activation='relu', alpha=1e-05, batch_size='auto',
        # beta_1=0.9, beta_2=0.999, early_stopping=False,
        # epsilon=1e-08, hidden_layer_sizes=(5, 2), learning_rate='constant',
@@ -30,3 +30,19 @@ def neural_network_prediction(clf,data):
        # solver='lbfgs', tol=0.0001, validation_fraction=0.1, verbose=False,
        # warm_start=False)
        return labels
+
+def minimum_features_distance_classification(sample_features, training_data_coeffs, training_data_groups):
+
+    distances = np.zeros(shape=np.shape(training_data_coeffs))
+    for feature_idx in range(len(sample_features)):
+
+        for data_idx in range(len(training_data_coeffs)):
+            distances[data_idx,feature_idx] = (sample_features[feature_idx] - training_data_coeffs[data_idx,feature_idx]) ** 2
+
+    results = np.sum(distances, axis=1)
+    group_idx = np.argmin(results)
+    classified_group = training_data_groups[group_idx]
+
+    return classified_group, results
+
+

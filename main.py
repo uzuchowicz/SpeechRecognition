@@ -37,12 +37,13 @@ prep.wav_files_segmentation(data_files, info_files, input_path, output_path)
 
 print('what')
 
-# low_freq=30
-# high_freq=3200
+
 # data_filtr = prepr.data_filtering(data, fs, low_freq,high_freq, 2, True)
 x=np.loadtxt('analysis_coeffs\\mean_recordings_266766_23_K_9_3.wav.txt', dtype=float)
-print('d[a')
 
-
-coeffs = fextr.compute_coefficients(input_path)
-print(coeffs)
+coeffs, commands_groups = fextr.compute_training_coefficients(output_path)
+sample = fextr.compute_sample_coefficients(output_path + '_BRAME_1.wav')
+training_data_groups = 2
+results = classf.minimum_features_distance_classification(sample, coeffs, commands_groups)
+print('results')
+print(results)

@@ -2,15 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import wave
 from pydub import AudioSegment
-import features_extraction as fextr
-import pydub
-from pathlib import Path
-import pylab
-import scipy.io.wavfile as wavfile
-import matplotlib.cm as cm
-import scipy as scipy
-import pandas
-# from spectrum import *
 from scipy.signal import butter, lfilter
 
 
@@ -90,13 +81,14 @@ def wav_files_segmentation(data_files, info_files, input_path, output_path):
 
             fs = data_wav.getframerate()
             command = commands[nb_command].split()
-            start_ime = float(command[0])*1000
+            start_time = float(command[0])*1000
             end_time = float(command[1])*1000
             nb_command += 1
 
             command_audio = AudioSegment.from_wav(input_path+data_files[file_idx])
 
-            command_audio = command_audio[start_ime:end_time]
+            command_audio = command_audio[start_time:end_time]
 
-            command_audio.export(output_path+command[2]+str(file_idx)+'.wav', format="wav")
-    return True
+            command_audio.export(output_path + '_' + command[2]+ '_' + str(file_idx)+'.wav', format="wav")
+
+    return commands_file

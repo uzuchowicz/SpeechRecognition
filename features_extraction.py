@@ -2,27 +2,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 import wave
 import preprocessing as prep
-from pydub import AudioSegment
-import features_extraction as seg
-import pydub
 from pathlib import Path
 import pylab
-import scipy.io.wavfile as wavfile
 import matplotlib.cm as cm
 import scipy as scipy
 import pandas
 import pywt
-# from spectrum import *
-from scipy.signal import butter, lfilter
 
 
-def compute_coefficients(input_path, analysis_path=0, saving=False):
+def compute_training_coefficients(input_path, analysis_path=0, saving=False):
 
-    data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
+    if input_path[-4:] == '.wav':
+        data_files = [input_path] #.split('\\')[-1]]
+    else:
+        data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
 
-   # matrix_coeffs = np.matrix([])
-    matrix_coeffs = np.zeros((len(data_files),5))
-    print(np.shape(matrix_coeffs))
+    # matrix_coeffs = np.matrix([])
+    matrix_coeffs = np.zeros((len(data_files),8))
+    commands_groups = list()
     for file_idx in range(len(data_files)):
         data_wav = wave.open(str(data_files[file_idx]), 'r')
         fs = data_wav.getframerate()
@@ -30,16 +27,19 @@ def compute_coefficients(input_path, analysis_path=0, saving=False):
         raw_signal = data_wav.readframes(-1)
         command_signal = np.fromstring(raw_signal, 'Int16')
 
-        command_signal = prep.data_filtering(command_signal,fs,30,3200, 2, False)
-        command_signal = prep.normalization(command_signal)
-
+        command_signal = prep.data_filtering(command_signal, fs, 30, 3200, 2, False)
 
         command_coeffs = np.append(command_coeffs, commands_mean_std_min_max(command_signal))
+        command_coeffs = np.append(command_coeffs, float(len(command_signal)))
+        # part of coefficients is calculated after normalization
+        command_signal = prep.normalization(command_signal)
         command_coeffs = np.append(command_coeffs, commands_max_freq(command_signal, fs))
-
-        matrix_coeffs[file_idx,:] = command_coeffs
-    #np.append(matrix_coeffs,[command_coeffs], axis=1)
-
+        command_coeffs = np.append(command_coeffs, commands_energy(command_signal))
+        command_coeffs = np.append(command_coeffs, commands_IQR(command_signal))
+        matrix_coeffs[file_idx, :] = command_coeffs
+        command_group = str(data_files[file_idx]).split('_')[-2]
+        commands_groups.append(command_group)
+    # np.append(matrix_coeffs,[command_coeffs], axis=1)
 
     # np.savetxt(str(analysis_path)+'PSD_'+str(file_name)+'.txt', data, fmt='%f')
     if saving:
@@ -54,9 +54,57 @@ def compute_coefficients(input_path, analysis_path=0, saving=False):
             file_path.write("\n")
             # np.savetxt(str(analysis_path) + 'PSD_' + str(input_path) + '.txt', power_spectrum_all)
 
-    return matrix_coeffs
+    return matrix_coeffs, commands_groups
 
 
+def compute_sample_coefficients(input_path, analysis_path=0, saving=False):
+
+    if input_path[-4:] == '.wav':
+        data_files = [input_path] #.split('\\')[-1]]
+        print('dsad')
+        print(data_files)
+    else:
+        data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
+
+    # matrix_coeffs = np.matrix([])
+    matrix_coeffs = np.zeros((len(data_files), 8))
+
+    for file_idx in range(len(data_files)):
+        data_wav = wave.open(str(data_files[file_idx]), 'r')
+        fs = data_wav.getframerate()
+        command_coeffs = []
+        raw_signal = data_wav.readframes(-1)
+        command_signal = np.fromstring(raw_signal, 'Int16')
+        low_freq=30
+        high_freq=3200
+        order = 2
+
+        command_signal = prep.data_filtering(command_signal, fs, low_freq, high_freq, order, False)
+
+        command_coeffs = np.append(command_coeffs, commands_mean_std_min_max(command_signal))
+        command_coeffs = np.append(command_coeffs, float(len(command_signal)))
+        # part of coefficients is calculated after normalization
+        command_signal = prep.normalization(command_signal)
+        command_coeffs = np.append(command_coeffs, commands_max_freq(command_signal, fs))
+        command_coeffs = np.append(command_coeffs, commands_energy(command_signal))
+        command_coeffs = np.append(command_coeffs, commands_IQR(command_signal))
+
+    # np.append(matrix_coeffs,[command_coeffs], axis=1)
+
+    # np.savetxt(str(analysis_path)+'PSD_'+str(file_name)+'.txt', data, fmt='%f')
+    if saving:
+        input_path = str(input_path)
+        input_path = input_path.replace("\\", "")
+        input_path = input_path.replace(".", "")
+        file_path = open(str(analysis_path) + 'Coeffs_' + input_path + '.txt', 'w')
+
+        for line in matrix_coeffs:
+            for item in line:
+                file_path.write("%f " % item)
+            file_path.write("\n")
+            # np.savetxt(str(analysis_path) + 'PSD_' + str(input_path) + '.txt', power_spectrum_all)
+
+    return command_coeffs
 
 def commands_psd(command_signal, fs, plotting = False):
 
@@ -96,7 +144,7 @@ def scalogram(data):
     level = 1
     order = "freq"
     interpolation = 'nearest'
-    cmap = cm.cool #settings colormap?
+    cmap = cm.cool # settings colormap?
 
     wp = pywt.WaveletPacket(data, wavelet, 'sym', maxlevel=level)
     nodes = wp.get_level(level, order=order)
@@ -130,8 +178,6 @@ def commands_mean_std_min_max(command_signal):
     # max(): Largest value in array
     # min(): Smallest value in array
 
-    command_stats = np.zeros(4)
-
     command_mean = np.array(np.mean(command_signal))
     command_std = np.std(command_signal)
     command_min = np.min(command_signal)
@@ -143,7 +189,7 @@ def commands_mean_std_min_max(command_signal):
 
 def commands_sma(command_signal, fs):
 
-    #signal magnitiude area
+    # signal magnitiude area
 
     sum = 0
     timeline = np.arange(0, 1 / fs * len(command_signal), 1 / fs)
@@ -178,11 +224,11 @@ def commands_IQR(command_signal):
     return command_iqr
 
 
-#signal entropy
+# signal entropy
 
 def commands_entropy(command_signal):
 
-    #command_entropy = get_ApEn(raw_signal)
+    # command_entropy = get_ApEn(raw_signal)
     p_data = pandas.value_counts(command_signal) / len(command_signal)  # calculates the probabilities
     command_entropy = scipy.stats.entropy(p_data)
 
@@ -213,46 +259,48 @@ def get_ApEn(RR_intervals, m=2, r_mlp=0.2):
 
     r = r_mlp * np.nanstd(RR_intervals)
     N = len(RR_intervals)
-    Phi_m_r = np.zeros(2)
+    phi_m_r = np.zeros(2)
 
     for n in range(2):
         m = m + n
-        Pm = np.zeros((N - m + 1, m))
+        pm = np.zeros((N - m + 1, m))
         # Pm vectors
         for j in range(N - m + 1):
             for i in range(m):
-                Pm[j, i] = RR_intervals[j + i]
+                pm[j, i] = RR_intervals[j + i]
         # calculate distances vector
         pm_distances = np.zeros((N - m + 1, N - m + 1))
         for i in range(N - m + 1):
             for j in range(N - m + 1):
                 dist = np.zeros(m)
                 for k in range(m):
-                    dist[k] = np.abs(Pm[j, k] - Pm[i, k])
+                    dist[k] = np.abs(pm[j, k] - pm[i, k])
                     pm_distances[i, j] = np.nanmax(dist)
                     pm_distances[j, i] = np.nanmax(dist)
                     # comparision with tolerance
         pm_similarity = pm_distances > r
         # function Cmr
-        C_m_r = np.zeros(N - m + 1)
+        c_m_r = np.zeros(N - m + 1)
         for i in range(N - m + 1):
             n_i = np.nansum(pm_similarity[i])
-            C_m_r[i] = float(n_i) / float(N)
+            c_m_r[i] = float(n_i) / float(N)
         # phi parameter- Cmr logarithms mean
-        Phi_m_r[n] = np.nanmean(np.log(C_m_r))
-    ApEn = np.abs(Phi_m_r[0] - Phi_m_r[1])
+        phi_m_r[n] = np.nanmean(np.log(c_m_r))
+    ApEn = np.abs(phi_m_r[0] - phi_m_r[1])
 
 
     return ApEn
 
 def commands_autoreggression_coeffs(command_signal):
-    # Levinson-Durbin algorithm for solving the Hermitian Toeplitz system of Yule-Walker equations in the AR estimation problem
-#     #from spectrum import *
-# from pylab import *
-# a,b, rho = arma_estimate(marple_data, 15, 15, 30)
-# psd = arma2psd(A=a, B=b, rho=rho, sides='centerdc', norm=True)
-# plot(10 * log10(psd))
-# ylim([-50,0])
+
+    # Levinson-Durbin algorithm for solving the Hermitian Toeplitz system of Yule-Walker equations in the AR estimation
+    # problem
+    # #from spectrum import *
+    # from pylab import *
+    # a,b, rho = arma_estimate(marple_data, 15, 15, 30)
+    # psd = arma2psd(A=a, B=b, rho=rho, sides='centerdc', norm=True)
+    # plot(10 * log10(psd))
+    # ylim([-50,0])
 
     p_data = pandas.value_counts(command_signal) / len(command_signal)  # calculates the probabilities
     command_entropy = scipy.stats.entropy(p_data)
@@ -265,8 +313,8 @@ def commands_max_freq(command_signal, fs):
 
     time_step = 1 / fs
     freqs = np.fft.fftfreq(command_signal.size, time_step)
-    #idx = np.argsort(freqs)
-    #freqs = freqs[idx]
+    # idx = np.argsort(freqs)
+    # freqs = freqs[idx]
     max_idx=np.argmax(power_spectrum)
 
     command_max_freq = freqs[max_idx]
