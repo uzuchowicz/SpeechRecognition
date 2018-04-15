@@ -8,7 +8,27 @@ import matplotlib.cm as cm
 import scipy as scipy
 import pandas
 import pywt
+import scipy.stats as stats
 
+
+def compute_coefficients(command_signal, fs):
+
+    command_coeffs = []
+    command_coeffs.extend(commands_mean_std_min_max(command_signal))
+    command_coeffs.append(float(len(command_signal)))
+
+    # part of coefficients is calculated after normalization
+    prep.normalization(command_signal)
+
+    command_coeffs.append(commands_max_freq(command_signal, fs))
+    command_coeffs.append(commands_mean_freq(command_signal, fs))
+    command_coeffs.append(commands_energy(command_signal))
+    command_coeffs.append(commands_iqr(command_signal))
+    command_coeffs.append(commands_sma(command_signal, fs))
+    command_coeffs.append(commands_skewness_freq(command_signal, fs))
+    command_coeffs.append(commands_kurtosis_freq(command_signal, fs))
+
+    return command_coeffs
 
 def compute_training_coefficients(input_path, analysis_path=0, saving=False):
 
@@ -18,24 +38,19 @@ def compute_training_coefficients(input_path, analysis_path=0, saving=False):
         data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
 
     # matrix_coeffs = np.matrix([])
-    matrix_coeffs = np.zeros((len(data_files),8))
+    matrix_coeffs = np.zeros((len(data_files), 12))
     commands_groups = list()
+
     for file_idx in range(len(data_files)):
         data_wav = wave.open(str(data_files[file_idx]), 'r')
         fs = data_wav.getframerate()
-        command_coeffs = []
+
         raw_signal = data_wav.readframes(-1)
         command_signal = np.fromstring(raw_signal, 'Int16')
-
         command_signal = prep.data_filtering(command_signal, fs, 30, 3200, 2, False)
 
-        command_coeffs = np.append(command_coeffs, commands_mean_std_min_max(command_signal))
-        command_coeffs = np.append(command_coeffs, float(len(command_signal)))
-        # part of coefficients is calculated after normalization
-        command_signal = prep.normalization(command_signal)
-        command_coeffs = np.append(command_coeffs, commands_max_freq(command_signal, fs))
-        command_coeffs = np.append(command_coeffs, commands_energy(command_signal))
-        command_coeffs = np.append(command_coeffs, commands_IQR(command_signal))
+        command_coeffs = compute_coefficients(command_signal, fs)
+
         matrix_coeffs[file_idx, :] = command_coeffs
         command_group = str(data_files[file_idx]).split('_')[-2]
         commands_groups.append(command_group)
@@ -61,13 +76,11 @@ def compute_sample_coefficients(input_path, analysis_path=0, saving=False):
 
     if input_path[-4:] == '.wav':
         data_files = [input_path] #.split('\\')[-1]]
-        print('dsad')
-        print(data_files)
     else:
         data_files = [f for f in Path(input_path).glob('**/*.wav') if f.is_file()]
 
     # matrix_coeffs = np.matrix([])
-    matrix_coeffs = np.zeros((len(data_files), 8))
+    matrix_coeffs = np.zeros((len(data_files), 12))
 
     for file_idx in range(len(data_files)):
         data_wav = wave.open(str(data_files[file_idx]), 'r')
@@ -81,13 +94,8 @@ def compute_sample_coefficients(input_path, analysis_path=0, saving=False):
 
         command_signal = prep.data_filtering(command_signal, fs, low_freq, high_freq, order, False)
 
-        command_coeffs = np.append(command_coeffs, commands_mean_std_min_max(command_signal))
-        command_coeffs = np.append(command_coeffs, float(len(command_signal)))
-        # part of coefficients is calculated after normalization
-        command_signal = prep.normalization(command_signal)
-        command_coeffs = np.append(command_coeffs, commands_max_freq(command_signal, fs))
-        command_coeffs = np.append(command_coeffs, commands_energy(command_signal))
-        command_coeffs = np.append(command_coeffs, commands_IQR(command_signal))
+        command_coeffs = compute_coefficients(command_signal, fs)
+
 
     # np.append(matrix_coeffs,[command_coeffs], axis=1)
 
@@ -182,7 +190,7 @@ def commands_mean_std_min_max(command_signal):
     command_std = np.std(command_signal)
     command_min = np.min(command_signal)
     command_max = np.max(command_signal)
-    command_stats = [command_mean, command_std , command_min, command_max]
+    command_stats = np.array([command_mean, command_std , command_min, command_max])
 
     return command_stats
 
@@ -215,7 +223,7 @@ def commands_energy(command_signal):
     return command_energy
 
 
-def commands_IQR(command_signal):
+def commands_iqr(command_signal):
 
     # Interquartile range
     q75, q25 = np.percentile(command_signal, [75, 25])
@@ -321,6 +329,59 @@ def commands_max_freq(command_signal, fs):
 
     return command_max_freq
 
+def commands_mean_freq(command_signal, fs):
+
+    power_spectrum = np.abs(np.fft.fft(command_signal)) ** 2
+
+    time_step = 1 / fs
+    freqs = np.fft.fftfreq(command_signal.size, time_step)
+    # idx = np.argsort(freqs)
+    # freqs = freqs[idx]
 
 
+    command_mean_freq = sum(freqs*power_spectrum)/sum(power_spectrum)
+
+    return command_mean_freq
+
+def commands_mean_freq(command_signal, fs):
+
+    power_spectrum = np.abs(np.fft.fft(command_signal)) ** 2
+
+    time_step = 1 / fs
+    freqs = np.fft.fftfreq(command_signal.size, time_step)
+    # idx = np.argsort(freqs)
+    # freqs = freqs[idx]
+
+
+    command_mean_freq = sum(freqs*power_spectrum)/sum(power_spectrum)
+
+    return command_mean_freq
+
+def commands_kurtosis_freq(command_signal, fs):
+
+    power_spectrum = np.abs(np.fft.fft(command_signal)) ** 2
+
+    time_step = 1 / fs
+    freqs = np.fft.fftfreq(command_signal.size, time_step)
+    # idx = np.argsort(freqs)
+    # freqs = freqs[idx]
+
+
+    command_kurtosis_freq = stats.kurtosis(power_spectrum)
+
+    return command_kurtosis_freq
+
+def commands_skewness_freq(command_signal, fs):
+
+    power_spectrum = np.abs(np.fft.fft(command_signal)) ** 2
+
+    time_step = 1 / fs
+    freqs = np.fft.fftfreq(command_signal.size, time_step)
+    # idx = np.argsort(freqs)
+    # freqs = freqs[idx]
+
+
+    command_skewness_freq = stats.skew(power_spectrum)
+
+    return command_skewness_freq
 
