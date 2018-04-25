@@ -2,116 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3d46da6-db3d-4be4-8373-cda8f90628c8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/data_analysis.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/SpeechRecognition.iml" afterPath="$PROJECT_DIR$/.idea/SpeechRecognition.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/classification.py" afterPath="$PROJECT_DIR$/classification.py" />
-      <change beforePath="$PROJECT_DIR$/features_extraction.py" afterPath="$PROJECT_DIR$/features_extraction.py" />
-      <change beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_KUCHNI_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_KUCHNI_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_KUCHNI_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OGRZEWANIE_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OGRZEWANIE_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OGRZEWANIE_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OGRZEWANIE_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OTWORZ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OTWORZ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OTWORZ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_OTWORZ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_O_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_O_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_O_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_O_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODLEJ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODLEJ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODLEJ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODLEJ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODNIES_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODNIES_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODNIES_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PODNIES_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PRZYCISZ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PRZYCISZ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PRZYCISZ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_PRZYCISZ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_RADIO_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_RADIO_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_RADIO_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_RADIO_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ROLETY_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ROLETY_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ROLETY_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ROLETY_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_STOPIEN_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_STOPIEN_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_STOPIEN_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_STOPIEN_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SWIATLO_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SWIATLO_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SWIATLO_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SWIATLO_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SYPIALNI_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SYPIALNI_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SYPIALNI_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_SYPIALNI_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_TELEWIZOR_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_TELEWIZOR_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_TELEWIZOR_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_TELEWIZOR_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_USTAW_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_USTAW_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_USTAW_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_USTAW_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WLACZ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WLACZ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WLACZ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WLACZ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WODE_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WODE_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WODE_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WODE_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WYLACZ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WYLACZ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WYLACZ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_WYLACZ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_W_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_W_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_W_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_W_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAGOTUJ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAGOTUJ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAGOTUJ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAGOTUJ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAKREC_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAKREC_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAKREC_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAKREC_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAMKNIJ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAMKNIJ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAMKNIJ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAMKNIJ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPAL_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPAL_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPAL_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPAL_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPARZ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPARZ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPARZ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZAPARZ_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMIEN_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMIEN_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMIEN_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMIEN_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMYWARKE_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMYWARKE_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMYWARKE_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZMYWARKE_3.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZWIEKSZ_0.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZWIEKSZ_1.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZWIEKSZ_2.wav" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/segmented_commands/_ZWIEKSZ_3.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/0PSD_recordings.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data_analysis.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/speech_recognition_part1.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SpeechRecognition.iml" afterPath="$PROJECT_DIR$/.idea/SpeechRecognition.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Result_matrix.txt" afterPath="$PROJECT_DIR$/Result_matrix.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classification.py" afterPath="$PROJECT_DIR$/classification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features_extraction.py" afterPath="$PROJECT_DIR$/features_extraction.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preprocessing.py" afterPath="$PROJECT_DIR$/preprocessing.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -125,8 +27,8 @@
       <file leaf-file-name="features_extraction.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features_extraction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+            <state relative-caret-position="838">
+              <caret line="283" column="13" lean-forward="false" selection-start-line="283" selection-start-column="13" selection-end-line="283" selection-end-column="13" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -137,8 +39,8 @@
       <file leaf-file-name="preprocessing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1218">
-              <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="60" />
+            <state relative-caret-position="497">
+              <caret line="95" column="30" lean-forward="false" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -146,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classification.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="classification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="86" column="95" lean-forward="false" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="95" />
+            <state relative-caret-position="85">
+              <caret line="38" column="78" lean-forward="false" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -158,24 +60,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+            <state relative-caret-position="395">
+              <caret line="54" column="23" lean-forward="true" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
               <folding>
-                <element signature="e#1#31#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data_analysis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_analysis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="61" lean-forward="false" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -195,19 +87,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/speech_recognition_part1.py" />
         <option value="$PROJECT_DIR$/segmentation.py" />
-        <option value="$PROJECT_DIR$/preprocessing.py" />
-        <option value="$PROJECT_DIR$/features_extraction.py" />
         <option value="$PROJECT_DIR$/data_analysis.py" />
-        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/speech_recognition_part1.py" />
+        <option value="$PROJECT_DIR$/features_extraction.py" />
+        <option value="$PROJECT_DIR$/preprocessing.py" />
         <option value="$PROJECT_DIR$/classification.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="66" />
-    <option name="y" value="23" />
+    <option name="x" value="30" />
+    <option name="y" value="33" />
     <option name="width" value="1694" />
     <option name="height" value="913" />
   </component>
@@ -226,7 +118,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,11 +130,12 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$USER_HOME$/EEG_analysis_project/EEGAnalysis" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -279,7 +171,6 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -297,7 +188,6 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="segmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -315,7 +205,6 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="speech_recognition_part1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -333,7 +222,6 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.segmentation" />
@@ -376,27 +264,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21734533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1705757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49814913" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33510074" sideWeight="0.23020834" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49814913" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49391857" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3340935" sideWeight="0.76979166" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33369565" sideWeight="0.76979166" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49814913" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49391857" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32611173" sideWeight="0.49603385" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32608697" sideWeight="0.49603385" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49814913" order="6" side_tool="false" content_ui="tabs" />
@@ -405,17 +293,17 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33510074" sideWeight="0.23020834" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33369565" sideWeight="0.76979166" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49814913" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49391857" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3340935" sideWeight="0.76979166" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.49603385" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21734533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32611173" sideWeight="0.49603385" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1705757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -436,6 +324,86 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/features_extraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="61" column="135" lean-forward="false" selection-start-line="61" selection-start-column="135" selection-end-line="61" selection-end-column="135" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features_extraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="86" column="95" lean-forward="false" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/features_extraction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1239">
@@ -471,7 +439,7 @@
         <state relative-caret-position="1260">
           <caret line="66" column="54" lean-forward="false" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -511,7 +479,7 @@
         <state relative-caret-position="798">
           <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,7 +519,7 @@
         <state relative-caret-position="340">
           <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -571,7 +539,7 @@
         <state relative-caret-position="357">
           <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -591,7 +559,7 @@
         <state relative-caret-position="357">
           <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -616,13 +584,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speech_recognition_part1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/speech_recognition_part1.py" />
     <entry file="file://$PROJECT_DIR$/features_extraction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -634,19 +596,13 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pydub/utils.py" />
-    <entry file="file://$PROJECT_DIR$/speech_recognition_part1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="45" column="24" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/speech_recognition_part1.py" />
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,7 +632,7 @@
         <state relative-caret-position="425">
           <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -696,7 +652,7 @@
         <state relative-caret-position="119">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -716,7 +672,7 @@
         <state relative-caret-position="306">
           <caret line="26" column="67" lean-forward="false" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -736,7 +692,7 @@
         <state relative-caret-position="204">
           <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -776,8 +732,18 @@
     <entry file="file://$PROJECT_DIR$/speech_recognition_part1.py" />
     <entry file="file://$PROJECT_DIR$/features_extraction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+        <state relative-caret-position="838">
+          <caret line="283" column="13" lean-forward="false" selection-start-line="283" selection-start-column="13" selection-end-line="283" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="95" column="30" lean-forward="false" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -786,38 +752,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="61" lean-forward="false" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-          <folding>
-            <element signature="e#1#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="86" column="95" lean-forward="false" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="95" />
+        <state relative-caret-position="85">
+          <caret line="38" column="78" lean-forward="false" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="54" column="23" lean-forward="true" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>

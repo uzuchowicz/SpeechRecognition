@@ -243,30 +243,10 @@ def commands_entropy(command_signal):
     return command_entropy
 
 
-def get_ApEn(RR_intervals, m=2, r_mlp=0.2):
-    """
-    Estimate Approximate Entropy of signal
-    ----------
-    Parameters:
-    ----------
-    fHR: array
-        signal.
-    t_fHR: array
-        Timestamps for fHR calculated with ZuzaDSP, fs=0.4 Hz
-    m: int
-        Lenght of compared RR intervals sequences.
-    r_mlp: float
-        Multiple standard deviation. Tolerance for accepting matches is standard deviation multiplied by r_mpl.
+def command_entropy(command_signal, m=2, r_mlp=0.2):
 
-    Outputs:
-    -------
-    ApEn: float
-        Approximate Entropy for fHR record.
-    """
-    # parameters
-
-    r = r_mlp * np.nanstd(RR_intervals)
-    N = len(RR_intervals)
+    r = r_mlp * np.nanstd(command_signal)
+    N = len(command_signal)
     phi_m_r = np.zeros(2)
 
     for n in range(2):
@@ -275,7 +255,7 @@ def get_ApEn(RR_intervals, m=2, r_mlp=0.2):
         # Pm vectors
         for j in range(N - m + 1):
             for i in range(m):
-                pm[j, i] = RR_intervals[j + i]
+                pm[j, i] = command_signal[j + i]
         # calculate distances vector
         pm_distances = np.zeros((N - m + 1, N - m + 1))
         for i in range(N - m + 1):
@@ -294,21 +274,14 @@ def get_ApEn(RR_intervals, m=2, r_mlp=0.2):
             c_m_r[i] = float(n_i) / float(N)
         # phi parameter- Cmr logarithms mean
         phi_m_r[n] = np.nanmean(np.log(c_m_r))
-    ApEn = np.abs(phi_m_r[0] - phi_m_r[1])
+    command_entropy = np.abs(phi_m_r[0] - phi_m_r[1])
 
-
-    return ApEn
+    return command_entropy
 
 def commands_autoreggression_coeffs(command_signal):
 
     # Levinson-Durbin algorithm for solving the Hermitian Toeplitz system of Yule-Walker equations in the AR estimation
     # problem
-    # #from spectrum import *
-    # from pylab import *
-    # a,b, rho = arma_estimate(marple_data, 15, 15, 30)
-    # psd = arma2psd(A=a, B=b, rho=rho, sides='centerdc', norm=True)
-    # plot(10 * log10(psd))
-    # ylim([-50,0])
 
     p_data = pandas.value_counts(command_signal) / len(command_signal)  # calculates the probabilities
     command_entropy = scipy.stats.entropy(p_data)

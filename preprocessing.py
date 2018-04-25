@@ -60,35 +60,39 @@ def normalization(data):
 
     return norm_data
 
+
 def match_target_amplitude(sound, target_dBFS):
+
     change_in_dBFS = target_dBFS - sound.dBFS
+
     return sound.apply_gain(change_in_dBFS)
 
 
-
 def wav_files_segmentation(data_files, info_files, input_path, output_path):
+    try:
+        for file_idx in range(len(data_files)):
 
-    for file_idx in range(len(data_files)):
+            commands_file = open(input_path+info_files[file_idx],"r")
+            commands = commands_file.readlines()
 
-        commands_file = open(input_path+info_files[file_idx],"r")
-        commands = commands_file.readlines()
+            commands_file.close()
 
-        commands_file.close()
+            nb_command = 0
+            for line in commands:
+                data_wav = wave.open(input_path + data_files[file_idx], 'r')
 
-        nb_command = 0
-        for line in commands:
-            data_wav = wave.open(input_path + data_files[file_idx], 'r')
+                command = commands[nb_command].split()
+                start_time = float(command[0])*1000
+                end_time = float(command[1])*1000
+                nb_command += 1
 
-            fs = data_wav.getframerate()
-            command = commands[nb_command].split()
-            start_time = float(command[0])*1000
-            end_time = float(command[1])*1000
-            nb_command += 1
+                command_audio = AudioSegment.from_wav(input_path+data_files[file_idx])
 
-            command_audio = AudioSegment.from_wav(input_path+data_files[file_idx])
+                command_audio = command_audio[start_time:end_time]
 
-            command_audio = command_audio[start_time:end_time]
+                command_audio.export(output_path + '_' + command[2]+ '_' + str(file_idx)+'.wav', format="wav")
+        result = 'Command segmentation - success!'
+    except:
+        result = 'Error occurs'
 
-            command_audio.export(output_path + '_' + command[2]+ '_' + str(file_idx)+'.wav', format="wav")
-
-    return commands_file
+    return result
